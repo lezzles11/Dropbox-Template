@@ -4,6 +4,10 @@ const fileUpload = require("express-fileupload");
 const fs = require("fs");
 const path = require("path");
 const app = express();
+const port = 3000;
+app.use(express.static(__dirname + "/public"));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /*
 1. Create a HTTP Server. (express)
@@ -12,6 +16,9 @@ const app = express();
 /*
 2. Read file from local (fs with Promise)
 */
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
 
 /*
 3. Handle HTTP Request.
@@ -40,3 +47,7 @@ const app = express();
 /*
 9. Retrieve file content from cache afterward
 */
+
+app.listen(port, () => {
+  console.log("Listening on 3000");
+});
