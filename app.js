@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 2. Read file from local (fs with Promise)
 */
 app.get("/", (req, res) => {
-  res.send("Hello!");
+  res.sendFile(__dirname + "/pages/index.html");
 });
 
 /*
